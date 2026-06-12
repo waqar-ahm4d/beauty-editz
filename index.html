@@ -539,6 +539,13 @@
     font-size: 0.72rem; color: rgba(245,240,232,0.28);
   }
 
+    .get_in_touch {
+        display: flex;
+        justify-content: space-between;
+        max-width: 40%;
+        margin: auto;
+        padding-top: 1rem;
+    }
   /* ═══════════════════════════════════
      RESPONSIVE
   ═══════════════════════════════════ */
@@ -557,6 +564,10 @@
     .footer-top { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 768px) {
+    .get_in_touch {
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
     .section { padding: 72px 0; }
     .header-nav { display: none; }
     .header-cta { display: none; }
@@ -596,7 +607,7 @@
     <a href="#contact">Contact</a>
   </nav>
   <div class="header-cta">
-    <a href="#contact" class="btn btn-gold">Book Now</a>
+    <a href="https://wa.me/+923004769145" class="btn btn-gold">Talk with Waqar</a>
   </div>
   <button class="nav-toggle" onclick="toggleMobileNav()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -1082,10 +1093,14 @@
         <a href="#contact" class="btn btn-gold" style="font-size:0.65rem;padding:12px 24px;">Book a Session</a>
       </div>
     </div>
-    <div class="footer-bottom">
+    <!-- <div class="footer-bottom">
       <span>© 2025 Beauty Editz. All rights reserved. Queens, New York.</span>
-      <span>Licensed &amp; Fully Insured</span>
-    </div>
+      <a href="./index2.html">Checkout the Beauty Editz 2.0</a>
+    </div> -->
+    <div class="get_in_touch">
+        <a href="https://wa.me/+923004769145" target="_blank" class="wqr">Talk with Waqar</a>
+        <a class="version" href="./index2.html">Checkout the Beauty Editz 2.0</a>
+        </div>
   </div>
 </footer>
 

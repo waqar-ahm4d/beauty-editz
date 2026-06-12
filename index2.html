@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Editz | Premium Massage Therapy & Wellness Queens, NY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --charcoal: #1A1A1A;
+            --deep-mocha: #2A221D;
+            --warm-black: #121212;
+            --soft-gold: #D4AF37;
+            --champagne-gold: #E6D5A8;
+            --text-light: #F5F5F5;
+            --text-muted: #A0A0A0;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Poppins', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        body {
+            background-color: var(--warm-black);
+            color: var(--text-light);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- UTILITIES & REUSABLE COMPONENTS --- */
+        .section-padding {
+            padding: 100px 24px;
+        }
+        @media (max-width: 768px) {
+            .section-padding { padding: 70px 16px; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--champagne-gold);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: var(--soft-gold);
+            margin: 15px auto 0 auto;
+        }
+        .section-header p {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 1px solid transparent;
+            text-align: center;
+        }
+
+        .btn-gold {
+            background-color: var(--soft-gold);
+            color: var(--warm-black);
+        }
+        .btn-gold:hover {
+            background-color: transparent;
+            border-color: var(--soft-gold);
+            color: var(--soft-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .btn-outline {
+            border-color: var(--text-light);
+            color: var(--text-light);
+        }
+        .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--warm-black);
+            transform: translateY(-3px);
+        }
+
+        /* Placeholders */
+        .img-placeholder {
+            background: linear-gradient(135deg, #222 0%, #1A1A1A 100%);
+            border: 1px solid rgba(214, 175, 87, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .img-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle, rgba(214,175,55,0.03) 0%, transparent 80%);
+        }
+
+        /* Scroll Reveal Animation base class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER / NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (max-width: 992px) {
+            header { padding: 20px 24px; }
+        }
+
+        header.scrolled {
+            background-color: rgba(18, 18, 18, 0.95);
+            padding: 15px 50px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(214, 175, 87, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        @media (max-width: 992px) {
+            header.scrolled { padding: 15px 24px; }
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--champagne-gold);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-link {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-light);
+            font-weight: 400;
+            position: relative;
+            padding: 5px 0;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--soft-gold);
+            transition: var(--transition-smooth);
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: var(--champagne-gold);
+        }
+
+        /* Mobile Menu Toggle */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--text-light);
+            margin: 5px 0;
+            transition: var(--transition-smooth);
+        }
+
+        @media (max-width: 992px) {
+            .hamburger { display: block; }
+            .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .hamburger.open span:nth-child(2) { opacity: 0; }
+            .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background-color: var(--charcoal);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                transition: var(--transition-smooth);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+                border-left: 1px solid rgba(214, 175, 87, 0.1);
+            }
+            .nav-menu.open { right: 0; }
+        }
+
+        /* --- HERO SECTION --- */
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            padding: 0 24px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            aspect-ratio: 16/9;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(18,18,18,0.6) 0%, rgba(18,18,18,0.95) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+        .hero-content h1 {
+            font-size: 5.5rem;
+            color: var(--text-light);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fadeInDown 1.2s ease forwards;
+        }
+        .hero-content p {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.6rem;
+            color: var(--champagne-gold);
+            margin-bottom: 40px;
+            letter-spacing: 0.02em;
+            animation: fadeInUp 1.2s ease 0.3s forwards;
+            opacity: 0;
+        }
+        .hero-btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            animation: fadeInUp 1.2s ease 0.6s forwards;
+            opacity: 0;
+        }
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 3.5rem; }
+            .hero-content p { font-size: 1.2rem; }
+            .hero-btn-container { flex-direction: column; gap: 15px; align-items: center; }
+            .hero-btn-container .btn { width: 100%; max-width: 280px; }
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            animation: fadeInUp 1.2s ease 0.9s forwards;
+            opacity: 0;
+        }
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+        }
+        .badge-item svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--soft-gold);
+        }
+        @media (max-width: 768px) {
+            .trust-badges { flex-direction: column; gap: 15px; align-items: center; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- ABOUT SECTION --- */
+        #about {
+            background-color: var(--charcoal);
+        }
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        @media (max-width: 992px) {
+            .about-wrapper { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+        }
+
+        .about-img-container {
+            display: flex;
+            justify-content: center;
+        }
+        .about-portrait {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 2px solid var(--soft-gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            aspect-ratio: 1/1;
+        }
+        @media (max-width: 480px) {
+            .about-portrait { width: 280px; height: 280px; }
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            color: var(--champagne-gold);
+            margin-bottom: 25px;
+        }
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        .about-content p strong {
+            color: var(--text-light);
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--charcoal);
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 24px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(214, 175, 55, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .service-thumb {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            aspect-ratio: 4/3;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            color: var(--champagne-gold);
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        .service-card .btn {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 0.8rem;
+        }
+
+        /* --- FEATURED SECTION: CHAIR MASSAGE --- */
+        .featured-event {
+            background: linear-gradient(rgba(42, 34, 29, 0.85), rgba(42, 34, 29, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23121212" width="100" height="100"/><path d="M50 0 L100 50 L50 100 L0 50 Z" fill="none" stroke="%23D4AF37" stroke-width="0.5" opacity="0.05"/></svg>');
+            background-size: cover;
+            background-attachment: fixed;
+            border-top: 1px solid rgba(214,175,55,0.2);
+            border-bottom: 1px solid rgba(214,175,55,0.2);
+        }
+        .event-wrapper {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+        @media (max-width: 992px) {
+            .event-wrapper { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        .event-content h2 {
+            font-size: 3rem;
+            color: var(--champagne-gold);
+            margin-bottom: 20px;
+        }
+        .event-content p {
+            color: #D5C7BC;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+        .event-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 30px;
+            margin-bottom: 35px;
+        }
+        .event-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .event-feature-item span {
+            color: var(--soft-gold);
+            font-size: 1.3rem;
+        }
+        @media (max-width: 576px) {
+            .event-features { grid-template-columns: 1fr; }
+        }
+
+        .event-banner {
+            width: 100%;
+            height: 320px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            aspect-ratio: 16/9;
+        }
+
+        .gold-divider {
+            height: 1px;
+            width: 150px;
+            background: linear-gradient(to right, transparent, var(--soft-gold), transparent);
+            margin: 40px auto 0 auto;
+        }
+
+        /* --- PRICING SECTION --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        @media (max-width: 350px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+
+        .pricing-card {
+            background-color: var(--charcoal);
+            border: 1px solid rgba(255,255,255,0.02);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: var(--transition-smooth);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.recommended {
+            background-color: var(--deep-mocha);
+            border: 1px solid var(--soft-gold);
+            padding: 55px 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+        .badge-recommended {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--soft-gold);
+            color: var(--warm-black);
+            padding: 5px 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            border-radius: 20px;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        .pricing-duration {
+            font-size: 0.9rem;
+            color: var(--soft-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 25px;
+            display: block;
+        }
+        .pricing-price {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            color: var(--champagne-gold);
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: block;
+        }
+        .pricing-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+        .pricing-card .btn {
+            width: 100%;
+        }
+
+        /* --- FAQ SECTION --- */
+        #faq {
+            background-color: var(--charcoal);
+        }
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .accordion-item {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 10px 0;
+        }
+        .accordion-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            text-align: left;
+            padding: 20px 10px;
+            cursor: pointer;
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            transition: var(--transition-smooth);
+        }
+        .accordion-header:hover {
+            color: var(--champagne-gold);
+        }
+        .accordion-icon {
+            font-size: 1.5rem;
+            color: var(--soft-gold);
+            transition: transform 0.3s ease;
+        }
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            padding: 0 10px;
+        }
+        .accordion-content p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            padding-bottom: 20px;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+        }
+        @media (max-width: 992px) {
+            .contact-wrapper { grid-template-columns: 1fr; gap: 50px; }
+        }
+
+        /* Contact Form */
+        .contact-form-container h3 {
+            font-size: 2rem;
+            color: var(--champagne-gold);
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-control {
+            width: 100%;
+            background-color: var(--charcoal);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 16px 20px;
+            color: var(--text-light);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--soft-gold);
+            box-shadow: 0 0 10px rgba(214, 175, 55, 0.1);
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 140px;
+        }
+        .contact-form-container .btn {
+            width: 100%;
+        }
+
+        /* Contact Info */
+        .contact-info-container {
+            background-color: var(--charcoal);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.02);
+            height: fit-content;
+        }
+        .contact-info-container h3 {
+            font-size: 2rem;
+            color: var(--champagne-gold);
+            margin-bottom: 35px;
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .info-icon {
+            background-color: rgba(214, 175, 55, 0.08);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid rgba(214, 175, 55, 0.2);
+        }
+        .info-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--soft-gold);
+        }
+        .info-details h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--soft-gold);
+            margin-bottom: 5px;
+        }
+        .info-details p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            white-space: pre-line;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0B0B0B;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            padding: 60px 24px 30px 24px;
+            text-align: center;
+        }
+        .footer-brand {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--champagne-gold);
+            margin-bottom: 8px;
+        }
+        .footer-tagline {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            letter-spacing: 0.05em;
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+        .footer-nav a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+        .footer-nav a:hover {
+            color: var(--soft-gold);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--charcoal);
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+        .social-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--text-muted);
+            transition: var(--transition-smooth);
+        }
+        .social-icon:hover {
+            border-color: var(--soft-gold);
+            transform: translateY(-3px);
+        }
+        .social-icon:hover svg {
+            fill: var(--soft-gold);
+        }
+        .copyright {
+            font-size: 0.8rem;
+            color: #555;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            padding-top: 25px;
+        }
+        .get_in_touch {
+            display: flex;
+            justify-content: space-between;
+            max-width: 40%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <a href="#home" class="logo">Beauty Editz</a>
+        <button class="hamburger" aria-label="Toggle navigation" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#pricing" class="nav-link">Pricing</a></li>
+            <li><a href="#faq" class="nav-link">FAQ</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="https://wa.me/+923004769145" class="btn btn-gold" style="padding: 10px 24px; font-size: 0.75rem;">Talk with Waqar</a></li>
+            
+        </ul>
+    </header>
+
+    <section id="home">
+        <div class="hero-bg img-placeholder">[ Premium Wellness Photography Overlay — 16:9 Banner ]</div>
+        <div class="hero-content">
+            <h1>Beauty Editz</h1>
+            <p>Premium Massage Therapy and Wellness Services in Queens, New York</p>
+            <div class="hero-btn-container">
+                <a href="#contact" class="btn btn-gold">Book Now</a>
+                <a href="#services" class="btn btn-outline">View Services</a>
+            </div>
+            <div class="trust-badges">
+                <div class="badge-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    Licensed & Certified
+                </div>
+                <div class="badge-item">
+                    <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L14 19v-5.5l8 2.5z"/></svg>
+                    Mobile Services Available
+                </div>
+                <div class="badge-item">
+                    <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                    Event Bookings
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding reveal">
+        <div class="container about-wrapper">
+            <div class="about-img-container">
+                <div class="about-portrait img-placeholder">[ Circular Portrait Placeolder — 1:1 Aspect Ratio ]</div>
+            </div>
+            <div class="about-content">
+                <h2>About Beauty Editz</h2>
+                <p>Welcome to <strong>Beauty Editz</strong>, an elite destination for customized massage therapy and luxurious therapeutic healing situated right in the heart of Queens, New York.</p>
+                <p>Guided by our deeply client-focused philosophy, our premium services bridge the gap between technical clinical mastery and an immersive, upscale spa journey. Our licensed and advanced specialists shape every session around your specific structural requirements, personal stress points, and individual wellness trajectory.</p>
+                <p>Whether we are bringing our custom serenity layouts straight to your home or hosting corporate wellness micro-sanctuaries, our foundational objective remains constant: to return your body and state of mind to an optimal, high-performance equilibrium.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding container reveal">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Immersive physical restoration curated explicitly for your health needs</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-thumb img-placeholder">[ Service Image 4:3 ]</div>
+                <h3>Therapeutic Massage</h3>
+                <p>A restorative journey matching deep-tissue release, traditional Swedish methods, and targeted muscular alignments designed to dissolve high tension points.</p>
+                <a href="#contact" class="btn btn-gold">Book Now</a>
+            </div>
+            <div class="service-card">
+                <div class="service-thumb img-placeholder">[ Service Image 4:3 ]</div>
+                <h3>Mobile Massage</h3>
+                <p>Bring custom luxury to your personal environment. We deliver our professional treatment tables, ambient auditory accents, and therapeutic oils directly to you.</p>
+                <a href="#contact" class="btn btn-gold">Book Now</a>
+            </div>
+            <div class="service-card">
+                <div class="service-thumb img-placeholder">[ Service Image 4:3 ]</div>
+                <h3>Chair Massage Events</h3>
+                <p>High-efficiency, fully specialized structural relief targeted entirely on the upper shoulders, neck, and lower back region. Ideal for high-pressure professional configurations.</p>
+                <a href="#contact" class="btn btn-gold">Book Now</a>
+            </div>
+            <div class="service-card">
+                <div class="service-thumb img-placeholder">[ Service Image 4:3 ]</div>
+                <h3>Wellness Services</h3>
+                <p>Comprehensive sensory pathways encompassing luxury aromatherapy systems, hot volcanic stone mechanics, and custom structural mobility work.</p>
+                <a href="#contact" class="btn btn-gold">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-event section-padding reveal">
+        <div class="container event-wrapper">
+            <div class="event-content">
+                <h2>Chair Massage Events</h2>
+                <p>Introduce a premium tier of physical wellness directly into your organizational ecosystem or private social functions. Beauty Editz scales high-end corporate wellness structures, staff appreciation events, industry conventions, and private celebrations with elite, non-disruptive corporate chair configurations.</p>
+                <div class="event-features">
+                    <div class="event-feature-item"><span>&bull;</span> Corporate Wellness Programs</div>
+                    <div class="event-feature-item"><span>&bull;</span> Conferences & Summits</div>
+                    <div class="event-feature-item"><span>&bull;</span> Employee Appreciation Days</div>
+                    <div class="event-feature-item"><span>&bull;</span> Private Parties & Gatherings</div>
+                </div>
+                <a href="#contact" class="btn btn-gold">Request an Event</a>
+            </div>
+            <div>
+                <div class="event-banner img-placeholder">[ Luxury Event Highlight — 16:9 ]</div>
+            </div>
+        </div>
+        <div class="gold-divider"></div>
+    </section>
+
+    <section id="pricing" class="section-padding container reveal">
+        <div class="section-header">
+            <h2>Pricing</h2>
+            <p>Transparent investment details for elite holistic therapeutic services</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Express Session</h3>
+                <span class="pricing-duration">60 Minutes</span>
+                <span class="pricing-price">$130</span>
+                <p>An impactful, focused massage therapy treatment targeted completely on relieving high-priority chronic tension zones and restoring essential joint mobility.</p>
+                <a href="#contact" class="btn btn-outline">Book Session</a>
+            </div>
+            <div class="pricing-card recommended">
+                <div class="badge-recommended">Recommended</div>
+                <h3>Signature Session</h3>
+                <span class="pricing-duration">90 Minutes</span>
+                <span class="pricing-price">$185</span>
+                <p>Our gold standard therapeutic treatment. Allows ample, comprehensive time for an immersive head-to-toe full body alignment matching integrated stone therapy accents.</p>
+                <a href="#contact" class="btn btn-gold">Book Session</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Luxury Wellness Package</h3>
+                <span class="pricing-duration">120 Minutes</span>
+                <span class="pricing-price">$240</span>
+                <p>The ultimate sensory escape. A complete premium experience combining extended customized deep somatic bodywork, botanical aromatherapy, and advanced facial acupressure.</p>
+                <a href="#contact" class="btn btn-outline">Book Package</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-padding reveal">
+        <div class="container faq-wrapper">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Clear guidance to optimize your upcoming wellness treatments</p>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>What should I expect during my first appointment?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>Every initial session starts with a brief, thorough consultation evaluating your physical lifestyle, focus muscle groups, and distinct pressure sensitivities. We want to ensure your treatment is safe, hyper-personalized, and thoroughly relaxing.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>What is your cancellation policy?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>We respect your schedule and request the same consideration. We operate a firm 24-hour notification framework for structural cancellations or appointment modifications to avoid booking room adjustment fees.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Do you offer mobile massage services?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>Yes, absolutely. Our mobile wellness systems replicate our internal high-end spa aesthetic directly inside your domestic living space, complete with luxury linens, tailored sound tracks, and specialized physical equipment.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>What areas do you serve?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>We provide standard coverage throughout Queens, New York and immediate adjacent community zones. If you are requesting services slightly further out, please contact our team to evaluate extended travel logistics.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>How do chair massage event bookings work?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>Simply navigate to our contact structure and select event requests. We provide completely customized quotes based on hour metrics, participant count, and requested professional therapist counts.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>What payment methods do you accept?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>We accept all primary global credit card networks, Apple Pay, secure electronic payments, and verified spa gift certificates. Secure electronic receipts are instantly provided post-treatment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding container reveal">
+        <div class="contact-wrapper">
+            
+            <div class="contact-form-container">
+                <h3>Request Reservation</h3>
+                <form id="spa-contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out to Beauty Editz. We will contact you shortly to confirm your booking.');">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Tell us about your wellness needs (e.g., specific treatment, preferred dates, mobile or event request)..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info-container">
+                <h3>Contact Information</h3>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <div class="info-details">
+                        <h4>Call or Text</h4>
+                        <p>(516) 555-0192</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <div class="info-details">
+                        <h4>Email Us</h4>
+                        <p>concierge@beautyeditz.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <div class="info-details">
+                        <h4>Location</h4>
+                        <p>Queens, New York</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1.01 16h-2v-6h2v6zm0-8h-2V7h2v5z"/></svg>
+                    </div>
+                    <div class="info-details">
+                        <h4>Business Hours</h4>
+                        <p>Monday – Friday: 9:00 AM – 8:00 PM&#10;Saturday & Sunday: 10:00 AM – 6:00 PM</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-brand">Beauty Editz</div>
+        <div class="footer-tagline">"Relax. Restore. Renew."</div>
+        
+        <ul class="footer-nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+        </div>
+
+        <div class="get_in_touch">
+        <a href="https://wa.me/+923004769145" target="_blank" class="wqr">Talk with Waqar</a>
+        <a class="version" href="./index.html">Checkout the Beauty Editz [First Version]</a>
+        </div>
+    </footer>
+
+    <script>
+        // --- STICKY HEADER TRANSITION ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // --- MOBILE MENU TOGGLE ---
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navMenu.classList.toggle('open');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                navMenu.classList.remove('open');
+            });
+        });
+
+        // --- ACCORDION FAQ LOGIC ---
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const content = header.nextElementSibling;
+                
+                // Toggle current item
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = null;
+                    item.classList.remove('active');
+                } else {
+                    // Optional: Close other items first (Premium exclusive feel)
+                    document.querySelectorAll('.accordion-item').forEach(i => {
+                        i.classList.remove('active');
+                        i.querySelector('.accordion-content').style.maxHeight = null;
+                    });
+
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+
+        // --- FADE-UP REVEAL ON SCROLL ---
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const triggerBottom = (window.innerHeight / 5) * 4.5;
+            
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < triggerBottom) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Initial invocation to reveal elements near top on load
+        revealOnScroll();
+
+        // --- ACTIVE NAVIGATION HIGHLIGHT ON SCROLL ---
+        const sections = document.querySelectorAll('section[id]');
+        
+        window.addEventListener('scroll', () => {
+            let scrollY = window.pageYOffset;
+            
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 100;
+                const sectionId = current.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelector('.nav-menu a[href*=' + sectionId + ']')?.classList.add('active');
+                } else {
+                    document.querySelector('.nav-menu a[href*=' + sectionId + ']')?.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
